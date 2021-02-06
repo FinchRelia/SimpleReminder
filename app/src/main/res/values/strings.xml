@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Simple Reminder</string>
+    <string name="sharedPreference" translatable="false">com.example.simplereminder</string>
+    <string name="newAccount"><u>Create an account</u></string>
+</resources>
