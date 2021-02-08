@@ -32,6 +32,7 @@ class SignUpActivity : AppCompatActivity() {
                         creds.edit().putInt("LoginStatus", 1).apply()
                         startActivity(
                                 Intent(applicationContext, MainActivity::class.java)
+                                    .putExtra("username", username)
                         )
                     }
                     else {

@@ -1,18 +1,25 @@
 package com.example.simplereminder
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 
-class NewReminderActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_reminder)
+        setContentView(R.layout.activity_profile)
 
-        // Go back to the main activity after typing a reminder
+        // Get logged user's name
         val username = intent.getStringExtra("username")
-        findViewById<Button>(R.id.submitBtn).setOnClickListener {
+        findViewById<TextView>(R.id.usernameField).setText(username)
+
+        // Go back to the home activity when hitting the button
+        findViewById<Button>(R.id.homeBtn).setOnClickListener {
             startActivity(Intent(applicationContext, MainActivity::class.java)
                 .putExtra("username", username))
         }

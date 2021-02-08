@@ -2,4 +2,8 @@
     <string name="app_name">Simple Reminder</string>
     <string name="sharedPreference" translatable="false">com.example.simplereminder</string>
     <string name="newAccount"><u>Create an account</u></string>
+    <string-array name="Inputs">
+        <item name="Title">My glorious note about crypto \n\nBuy Dogecoin! </item>
+        <item name="Title">Daily reminder for normies \n\nUse Signal!</item>
+    </string-array>
 </resources>

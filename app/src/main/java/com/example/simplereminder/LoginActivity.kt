@@ -41,9 +41,9 @@ class LoginActivity : AppCompatActivity() {
             if (creds.contains(login)) {
                 if(logsTable.getValue(login) == pwd) {
                     creds.edit().putInt("LoginStatus", 1).apply()
-                    startActivity(
-                        Intent(applicationContext, MainActivity::class.java)
-                    )
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    intent.putExtra("username", login)
+                    startActivity(intent)
                 }
                 else {
                     notifyUser("Wrong password for user $login")
@@ -115,7 +115,9 @@ class LoginActivity : AppCompatActivity() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
                     super.onAuthenticationSucceeded(result)
                     notifyUser("Authentication success!")
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.putExtra("username", "admin")
+                    startActivity(intent)
                     // Store authentication success
                     applicationContext.getSharedPreferences(
                         getString(R.string.sharedPreference),
