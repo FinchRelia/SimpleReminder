@@ -135,7 +135,7 @@ class LoginActivity : AppCompatActivity() {
     private fun checkLoginStatus() {
         val loginStatus = applicationContext.getSharedPreferences(getString(R.string.sharedPreference), Context.MODE_PRIVATE).getInt("LoginStatus", 0)
         if (loginStatus == 1) {
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            startActivity(Intent(applicationContext, MainActivity::class.java).putExtra("username", "admin"))
         }
     }
 }

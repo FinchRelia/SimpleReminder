@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/listTitle"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="My note title" />
+        android:layout_height="match_parent"
+        android:background="@color/Background"
+        android:descendantFocusability = "blocksDescendants"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/listContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="My note content" />
+        <TextView
+            android:id="@+id/reminderContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="My note content"
+            android:textColor="#FFFFFF" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/reminderCreation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Reminder creation time"
+            android:textColor="#958D8D" />
+
+        <TextView
+            android:id="@+id/reminderDue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Reminder due time"
+            android:textColor="#FF958D8D" />
+
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/editReminder"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Button"
+                android:layout_marginStart="45dp"
+                android:text="EDIT" />
+
+            <Button
+                android:id="@+id/deleteReminder"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Button"
+                android:layout_marginStart="40dp"
+                android:text="DELETE" />
+
+        </LinearLayout>-->
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+</layout>

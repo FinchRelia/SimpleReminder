@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="@color/Background"
         android:orientation="vertical"
-        tools:context=".NewReminderActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EditReminderActivity">
 
         <TextView
             android:id="@+id/textView4"
@@ -16,19 +17,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:gravity="center"
-            android:text="New Reminder"
+            android:text="Edit Reminder"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/reminderData"
+            android:id="@+id/editReminderData"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Save your thoughts here "
             android:inputType="textMultiLine"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF" />
@@ -41,27 +41,25 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/location_x"
+                android:id="@+id/editLocation_x"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Latitude"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
 
             <EditText
-                android:id="@+id/location_y"
+                android:id="@+id/editLocation_y"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Longitude"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
@@ -69,28 +67,27 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/reminderTime"
+            android:id="@+id/editReminderTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:gravity="center"
-            android:hint="Reminder time"
             android:inputType="time"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF" />
 
         <Button
-            android:id="@+id/submitBtn"
+            android:id="@+id/updateReminderBtn"
             android:layout_width="323dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:backgroundTint="@color/Button"
-            android:text="SUBMIT"
+            android:text="UPDATE"
             android:textSize="16sp" />
 
-
     </LinearLayout>
+
 </layout>
