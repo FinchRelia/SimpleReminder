@@ -12,13 +12,12 @@ import com.example.simplereminder.databinding.TempListDataBinding
 import com.example.simplereminder.db.ReminderData
 
 
-class ReminderAdaptor(context: Context, private val list: List<ReminderData>) : BaseAdapter() {
+class ReminderAdaptor(context: Context, private val list: MutableList<ReminderData>) : BaseAdapter() {
     private val inflater: LayoutInflater =
             context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getView(position: Int, convertView: View?, container: ViewGroup?): View? {
         var rowBinding = TempListDataBinding.inflate(inflater, container, false)
-        //set payment info values to the list item
         rowBinding.reminderContent.text = list[position].message
         rowBinding.reminderCreation.text = "Created at: " + list[position].creation_time
         rowBinding.reminderDue.text = "Due: " + list[position].reminder_time

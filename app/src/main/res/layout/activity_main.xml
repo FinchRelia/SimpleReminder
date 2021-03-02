@@ -40,7 +40,7 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="wrap_content"
-            android:layout_height="469dp"
+            android:layout_height="410dp"
             android:layout_marginTop="10dp"
             tools:listitem="@layout/temp_list_data" />
             <!--android:entries="@array/Inputs"-->
@@ -56,6 +56,16 @@
             android:backgroundTint="@color/Button" />
 
         <Button
+            android:id="@+id/showAllBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/Button"
+            android:layout_gravity="center"
+            android:text="SHOW ALL"
+            android:textSize="16sp" />
+
+        <Button
             android:id="@+id/logOutBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,7 +74,6 @@
             android:layout_gravity="center"
             android:text="LOG OUT"
             android:textSize="16sp" />
-
 
     </LinearLayout>
 </layout>
