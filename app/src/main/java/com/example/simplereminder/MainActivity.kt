@@ -260,34 +260,14 @@ class MainActivity : AppCompatActivity() {
             val reminderRequest = OneTimeWorkRequestBuilder<ReminderWorker>()
                     .setInputData(reminderParameters)
                     .setInitialDelay(minutesFromNow, TimeUnit.MILLISECONDS)
+                    .addTag(uid.toString())
                     .build()
 
             WorkManager.getInstance(context).enqueue(reminderRequest)
         }
 
-        /*fun setReminder(context: Context, uid: Int, timeInMillis: Long, message: String) {
-            val intent = Intent(context, ReminderReceiver::class.java)
-            intent.putExtra("uid", uid)
-            intent.putExtra("message", message)
-
-            val pendingIntent =
-                    PendingIntent.getBroadcast(context, uid, intent, PendingIntent.FLAG_ONE_SHOT)
-
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            alarmManager.setExact(AlarmManager.RTC, timeInMillis, pendingIntent)
-        }*/
-
-        fun cancelReminder(context: Context, pendingIntentId: Int) {
-            val intent = Intent(context, ReminderReceiver::class.java)
-            val pendingIntent =
-                    PendingIntent.getBroadcast(
-                            context,
-                            pendingIntentId,
-                            intent,
-                            PendingIntent.FLAG_ONE_SHOT
-                    )
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            alarmManager.cancel(pendingIntent)
+        fun cancelReminder(context: Context, uid: Int) {
+            WorkManager.getInstance(context).cancelAllWorkByTag(uid.toString())
         }
     }
 }
