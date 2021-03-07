@@ -212,35 +212,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
 
-        fun showNotification(context: Context, notif: String) {
-
-            val CHANNEL_ID = "SIMPLE_REMINDER_NOTIFICATION_CHANNEL"
-            var notificationId = Random.nextInt(10, 1000) + 5
-            var notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentTitle(context.getString(R.string.app_name))
-                    .setContentText(notif)
-                    .setSmallIcon(R.drawable.ic_assignment_turned_in_white_24dp)
-                    .setStyle(NotificationCompat.BigTextStyle().bigText(notif))
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setGroup(CHANNEL_ID)
-
-            val notificationManager =
-                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-            // Notification chancel needed since Android 8
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val channel = NotificationChannel(
-                        CHANNEL_ID,
-                        context.getString(R.string.app_name),
-                        NotificationManager.IMPORTANCE_DEFAULT
-                ).apply {
-                    description = context.getString(R.string.app_name)
-                }
-                notificationManager.createNotificationChannel(channel)
-            }
-            notificationManager.notify(notificationId, notificationBuilder.build())
-        }
-
         fun setReminderWithWorkManager(
                 context: Context,
                 uid: Int,
@@ -268,6 +239,35 @@ class MainActivity : AppCompatActivity() {
 
         fun cancelReminder(context: Context, uid: Int) {
             WorkManager.getInstance(context).cancelAllWorkByTag(uid.toString())
+        }
+
+        fun showNotification(context: Context, notif: String) {
+
+            val CHANNEL_ID = "SIMPLE_REMINDER_NOTIFICATION_CHANNEL"
+            var notificationId = Random.nextInt(10, 1000) + 5
+            var notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+                    .setContentTitle(context.getString(R.string.app_name))
+                    .setContentText(notif)
+                    .setSmallIcon(R.drawable.ic_assignment_turned_in_white_24dp)
+                    .setStyle(NotificationCompat.BigTextStyle().bigText(notif))
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setGroup(CHANNEL_ID)
+
+            val notificationManager =
+                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            // Notification chancel needed since Android 8
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val channel = NotificationChannel(
+                        CHANNEL_ID,
+                        context.getString(R.string.app_name),
+                        NotificationManager.IMPORTANCE_DEFAULT
+                ).apply {
+                    description = context.getString(R.string.app_name)
+                }
+                notificationManager.createNotificationChannel(channel)
+            }
+            notificationManager.notify(notificationId, notificationBuilder.build())
         }
     }
 }

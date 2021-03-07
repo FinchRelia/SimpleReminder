@@ -82,6 +82,15 @@
             android:textColorHint="#FFFFFF" />
 
         <Button
+            android:id="@+id/mapsBtn"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/Button"
+            android:text="OPEN MAP" />
+
+        <Button
             android:id="@+id/submitBtn"
             android:layout_width="323dp"
             android:layout_height="wrap_content"
@@ -90,7 +99,6 @@
             android:backgroundTint="@color/Button"
             android:text="SUBMIT"
             android:textSize="16sp" />
-
 
     </LinearLayout>
 </layout>

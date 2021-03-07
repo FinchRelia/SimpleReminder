@@ -2,14 +2,13 @@ package com.example.simplereminder
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
-import android.widget.DatePicker
-import android.widget.TimePicker
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.room.Room
 import com.example.simplereminder.databinding.ActivityNewReminderBinding
@@ -33,6 +32,31 @@ class NewReminderActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
         val view = binding.root
         setContentView(view)
         val username = intent.getStringExtra("username")
+
+        findViewById<Button>(R.id.mapsBtn).setOnClickListener {
+            // Safe checks
+            if (binding.reminderData.text.isEmpty()) {
+                Toast.makeText(
+                        applicationContext,
+                        "Reminder content must be filled!",
+                        Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            if (binding.reminderTime.text.isEmpty()) {
+                Toast.makeText(
+                        applicationContext,
+                        "Time must be filled!",
+                        Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            startActivity(Intent(applicationContext, MapsActivity::class.java)
+                .putExtra("username", username)
+                .putExtra("messageContent", binding.reminderData.text.toString())
+                .putExtra("timeSelected", binding.reminderTime.text.toString()))
+        }
 
         // Hide keyboard when the dateTextBox is clicked
         binding.reminderTime.inputType = InputType.TYPE_NULL
